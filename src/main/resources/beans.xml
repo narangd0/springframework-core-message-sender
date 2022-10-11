@@ -12,10 +12,16 @@
     >
     </bean>
 
-    <bean id="emailMessageSender"
+    <!--<bean id="emailMessageSender"
           class="com.nhnacademy.edu.springframework.messagesender.EmailMessageSender"
           scope="singleton"
           destroy-method="destroy"
     >
+    </bean>-->
+
+    <bean id="messageSenderService" class="service.MessageSendService">
+        <!-- 생성자를 통한 의존성 주입 -->
+        <!-- <constructor-arg ref="smsMessageSender" />-->
+        <property name="messageSender" ref="smsMessageSender"/>
     </bean>
 </beans>
